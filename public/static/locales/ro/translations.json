@@ -12,7 +12,8 @@
   },
   "Welcome": {
     "Title":"Bine ai venit !",
-    "Subtitle":"Te rog adauga-ti emailul!"
+    "Subtitle":"Te rog adauga-ti emailul!",
+    "BadEmail": "Acesta nu este un email valid!"
   },
   "Tooltips": {
     "Logout": "Iesire",
