@@ -6,9 +6,13 @@
   "Forbidden": "Nu aveti dreptul sa vedeti aceasta pagina!",
   "NavBar": {
     "MyFirstMenu":"Primul meu meniu",
-    "Dashboard": "Panou central",
+    "Welcome": "Bine ai venit !",
     "Settings": "Setari",
     "User": "Profil"
+  },
+  "Welcome": {
+    "Title":"Bine ai venit !",
+    "Subtitle":"Te rog adauga-ti emailul!"
   },
   "Tooltips": {
     "Logout": "Iesire",
