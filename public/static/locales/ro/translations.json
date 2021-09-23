@@ -8,7 +8,22 @@
     "MyFirstMenu":"Primul meu meniu",
     "Welcome": "Bine ai venit !",
     "Settings": "Setari",
-    "User": "Profil"
+    "User": "Profil",
+    "Conferences":"Conferinte"
+  },
+  "Conferences":{
+    "Filters":{
+      "DateStart":"Data de pornire",
+      "DateEnd":"Data de incheiere",
+      "ResetButtons":"Reseteaza Filtrele",
+      "ApplyFilters":"Aplica Filtrele"
+    },"Speaker":"Orator: ",
+    "Components":{
+      "Withdraw":"Retras",
+      "Attended":"Attended",
+      "Join":"Particip",
+      "StatusNotSet": "Nu participi"
+    }
   },
   "Welcome": {
     "Title":"Bine ai venit !",
@@ -49,5 +64,8 @@
       "MinCharacters": "Lungimea trebuie sa fie mai mare decat {{min}}",
       "Unique": "Valoarea pentru {{selector}} trebuie sa fie unica"
     }
+  },
+  "UserMenu": {
+    "User":"Utilizator"
   }
 }

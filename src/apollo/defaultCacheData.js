@@ -15,7 +15,7 @@ const yourEntityDefaultPager = {
 const yourEntityDefaultListFilter = emptyObject
 
 //valoarea default a Emailului 
-const defaultEmail = {email:emptyString}
+const defaultEmail = {email:"ceva@ceva.io"}
 
 export const defaults = {
   [emailKey]:defaultEmail,

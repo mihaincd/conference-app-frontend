@@ -1,8 +1,18 @@
 import { Email } from '@material-ui/icons'
+import moment from 'moment'
 import { curry, without, intersection, isEmpty, not } from 'ramda'
 import {validEmailRegEx } from './constants'
 
 export const validateEmail = email => validEmailRegEx .test(email)
+
+export const generateDefaultFilters = () =>{
+  const today = moment()
+
+  return {
+    startDate: today.format('YYYY-MM-DD'),
+    endDate: today.add(2, "days").format('YYYY-MM-DD')
+}  
+}
 
 export const extractExactAge = (birthday, referenceDate) => {
   var differenceInMilisecond = Date.parse(referenceDate) || Date.now() - Date.parse(birthday)
