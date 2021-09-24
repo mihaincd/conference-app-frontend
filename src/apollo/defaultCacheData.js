@@ -1,4 +1,4 @@
-import { emptyObject, emptyString } from 'utils/constants'
+import { emptyObject } from 'utils/constants'
 import { yourEntityPager, yourEntityListFilter, emailKey } from './cacheKeyFunctions'
 
 // Here you define the default values for local apollo state (@client only values)
@@ -15,10 +15,10 @@ const yourEntityDefaultPager = {
 const yourEntityDefaultListFilter = emptyObject
 
 //valoarea default a Emailului 
-const defaultEmail = {email:"ceva@ceva.io"}
+const defaultEmail = { email: "ceva@ceva.io" }
 
 export const defaults = {
-  [emailKey]:defaultEmail,
+  [emailKey]: defaultEmail,
   [yourEntityPager]: yourEntityDefaultPager,
   [yourEntityListFilter]: yourEntityDefaultListFilter
 }

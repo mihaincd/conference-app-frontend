@@ -1,4 +1,3 @@
-import { Email } from '@material-ui/icons'
 import moment from 'moment'
 import { curry, without, intersection, isEmpty, not } from 'ramda'
 import {validEmailRegEx } from './constants'

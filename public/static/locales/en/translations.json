@@ -16,23 +16,51 @@
     "MyFirstMenu": "My First Menu",
     "Welcome": "Welcome!",
     "Settings": "Settings",
-    "Conferences":"Conferences"
+    "Conferences": "Conferences",
+    "MyConferences": "MyConferences"
   },
-  "Conferences":{
-    "Filters":{
-      "DateStart":"Start Date",
-      "DateEnd":"End Date",
-      "ResetButtons":"Reset Filters",
-      "ApplyFilters":"Apply Filters"
-    },"Speaker":"Speaker: ",
-    "Components":{
-      "Withdraw":"Withdraw",
-      "Attended":"Attended",
-      "Join":"Join",
+  "General": {
+    "Button": {
+      "Edit": "Edit",
+      "Delete": "Delete",
+      "AddConference": "Add Conference",
+      "AddSpeaker": "AddSpeaker",
+      "Save": "Save",
+      "DeleteSpeaker":"Delete Speaker"
+    }
+  },
+  "Conference": {
+    "Info": "Info",
+    "Location": "Location",
+    "Speakers": "Speakers",
+    "Name":"Name",
+    "StartDate":"Start Date",
+    "EndDate":"End Date",
+    "Type":"Type",
+    "Category":"Category"
+  },
+  "Speaker": {
+    "Name": "Name",
+    "Nationality": "Nationality",
+    "Rating": "Rating",
+    "MainSpeaker": "Main Speaker"
+  },
+  "Conferences": {
+    "Filters": {
+      "DateStart": "Start Date",
+      "DateEnd": "End Date",
+      "ResetButtons": "Reset Filters",
+      "ApplyFilters": "Apply Filters"
+    },
+    "Speaker": "Speaker: ",
+    "Components": {
+      "Withdraw": "Withdraw",
+      "Attended": "Attended",
+      "Join": "Join",
       "StatusNotSet": "Not attending"
     }
-  }
-  ,
+  },
+
   "Welcome": {
     "Title": "Welcome !",
     "Subtitle": "Please insert your email!",

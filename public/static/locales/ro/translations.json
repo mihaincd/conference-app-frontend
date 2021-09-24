@@ -5,29 +5,52 @@
   "MyProfile": "Profilul meu",
   "Forbidden": "Nu aveti dreptul sa vedeti aceasta pagina!",
   "NavBar": {
-    "MyFirstMenu":"Primul meu meniu",
+    "MyFirstMenu": "Primul meu meniu",
     "Welcome": "Bine ai venit !",
     "Settings": "Setari",
     "User": "Profil",
-    "Conferences":"Conferinte"
+    "Conferences": "Conferinte",
+    "MyConferences": "Conferintele mele"
   },
-  "Conferences":{
-    "Filters":{
-      "DateStart":"Data de pornire",
-      "DateEnd":"Data de incheiere",
-      "ResetButtons":"Reseteaza Filtrele",
-      "ApplyFilters":"Aplica Filtrele"
-    },"Speaker":"Orator: ",
-    "Components":{
-      "Withdraw":"Retras",
-      "Attended":"Attended",
-      "Join":"Particip",
+  "Conference": {
+    "Info": "Informatii",
+    "Location": "locatie",
+    "Speakers": "Oratori",
+    "Name": "Nume conferinta",
+    "StartDate": "Data inceput",
+    "EndDate": "Data sfarsit",
+    "Type": "Tipul conferintei",
+    "Category": "Categorie"
+  },
+  "Conferences": {
+    "Filters": {
+      "DateStart": "Data de pornire",
+      "DateEnd": "Data de incheiere",
+      "ResetButtons": "Reseteaza Filtrele",
+      "ApplyFilters": "Aplica Filtrele"
+    },
+    "Speaker": "Orator: ",
+    "Components": {
+      "Withdraw": "Retras",
+      "Attended": "Attended",
+      "Join": "Particip",
       "StatusNotSet": "Nu participi"
     }
   },
+  "General": {
+    "Button": {
+      "Edit": "Editeaza",
+      "Delete": "Sterge",
+      "AddConference": "Adauga Conferinta",
+      "AddSpeaker": "Adauga Orator",
+      "Save": "Salveaza",
+      "DeleteSpeaker": "Sterge Orator"
+    }
+  },
+
   "Welcome": {
-    "Title":"Bine ai venit !",
-    "Subtitle":"Te rog adauga-ti emailul!",
+    "Title": "Bine ai venit !",
+    "Subtitle": "Te rog adauga-ti emailul!",
     "BadEmail": "Acesta nu este un email valid!"
   },
   "Tooltips": {
@@ -43,6 +66,12 @@
     "InvalidDateMessage": "Formatul datei este invalid",
     "MinDateMessage": "Data introdusa nu poate fi mai mica decat valoarea minima",
     "MaxDateMessage": "Data introdusa nu poate fi mai mare decat valoarea maxima"
+  },
+  "Speaker": {
+    "Name": "Nume",
+    "Nationality": "Nationalitate",
+    "Rating": "Rating",
+    "MainSpeaker": "Orator principal"
   },
   "Validations": {
     "Cnp": "CNP-ul nu este valid",
@@ -66,6 +95,6 @@
     }
   },
   "UserMenu": {
-    "User":"Utilizator"
+    "User": "Utilizator"
   }
 }
