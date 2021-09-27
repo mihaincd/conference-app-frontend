@@ -29,6 +29,17 @@
       "DeleteSpeaker":"Delete Speaker"
     }
   },
+  "Location":{
+    "Name":"Name",
+    "Country":"Country",
+    "City":"City",
+    "County":"County",
+    "Address":"Address",
+    "Longitude":"Longitude",
+    "Latitude":"Latitude"
+
+  }
+  ,
   "Conference": {
     "Info": "Info",
     "Location": "Location",

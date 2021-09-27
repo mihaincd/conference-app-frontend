@@ -38,7 +38,7 @@ const handleAddClick = useCallback(() => {
         setHeader(
         <MyConferencesHeader    
             title={t('NavBar.MyConferences')}
-            actions={<AddButton title={t('MyConferences.General.AddConference')} onClick={handleAddClick}/> }
+            actions={<AddButton title={t('General.Button.AddConference')} onClick={handleAddClick}/> }
             />)
         
         return()=>{
