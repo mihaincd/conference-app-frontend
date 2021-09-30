@@ -27,7 +27,6 @@ function ConferenceListContainer() {
         setPager((state) => ({ ...state, page }))
     }, [])
 
-    
 
     const { data, loading, refetch } = useQueryWithErrorHandling(CONFERENCE_LIST_QUERY, {
         variables: { 
