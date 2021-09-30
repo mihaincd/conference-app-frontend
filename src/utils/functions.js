@@ -61,3 +61,5 @@ export const addMilliseconds = curry((milliseconds, date) => new Date(date.getTi
 
 // subtractOneMillisecond :: Date -> Date
 export const subtractOneMillisecond = addMilliseconds(-1)
+
+export const extractPager = ({ page, pageSize }) => ({ page, pageSize })

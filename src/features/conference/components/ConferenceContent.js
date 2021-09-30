@@ -14,9 +14,9 @@ const ConferenceContent = props => {
 
     const noStatusSet = t('Conferences.StatusNotSet')
 
-    const showJoin = status.id === attendeeStatus.Attended
-    const showWithdraw = status.id === attendeeStatus.Attended || status.id === attendeeStatus.Joined
-    const showAttend = status.id === attendeeStatus.Withdraw
+    const showJoin = status?.id === attendeeStatus.Attended
+    const showWithdraw = status?.id === attendeeStatus.Attended || status?.id === attendeeStatus.Joined
+    const showAttend = status?.id === attendeeStatus.Withdraw
 
     const startDateFormatted = t('DATE_FORMAT', { date: { value: startDate, format: 'DD-MMM-YYYY HH:mm' } })
     const endDateFormatted = t('DATE_FORMAT', { date: { value: endDate, format: 'DD-MMM-YYYY HH:mm' } })

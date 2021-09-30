@@ -58,7 +58,7 @@ function MyConferenceFilter(props) {
                 <Button size={"sm"} color={"primary"} right={true} >
                     {t("Conferences.Filters.ResetButtons")}
                 </Button>
-                <Button size={"sm"} color={"primary"} right={true}>
+                <Button size={"sm"} color={"primary"} right={true} onClick={handleApplyButton}>
                     {t("Conferences.Filters.ApplyFilters")}
                 </Button>
             </Grid>
