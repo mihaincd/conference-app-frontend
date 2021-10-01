@@ -29,7 +29,7 @@ export default function AppRoutes() {
     <Switch>
       <CustomRoute isPrivate={false} exact path="/helloWorld" component={HelloWorld} />
       <CustomRoute isPrivate={false} exact path='/welcome' component={Welcome} />
-      <CustomRoute exact path='/settings' component={Settings} />
+      <CustomRoute isPrivate={false} exact path='/settings' component={Settings} />
       <CustomRoute isPrivate={false} exact path='/conferences' component={ConferenceListContainer}/>
       <CustomRoute isPrivate={false} exact path='/myConferences' component={MyConferenceListContainer}/>
       <CustomRoute isPrivate={false} exact path='/myConferences/:id(new)' component={MyConferenceContainer} />

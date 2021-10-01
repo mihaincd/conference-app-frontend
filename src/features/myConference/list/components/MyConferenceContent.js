@@ -28,7 +28,7 @@ const MyConferenceContent = props => {
                 <Typography>{`${type.name}, ${category.name}`}</Typography>
             </Grid>
 
-            <Grid container spacing='2' >
+            <Grid container spacing={2} >
                 <Grid item xs={12}>
                     <Button right size='sm' color='danger'>{t('General.Button.Delete')}</Button>
                     <Button right size='sm' color='info' onClick={handleEditClick}>{t('General.Button.Edit')} </Button>

@@ -33,7 +33,7 @@ const ConferenceContent = props => {
                 <Typography>{`${type.name}, ${category.name}`}</Typography>
             </Grid>
 
-            <Grid container spacing='2' >
+            <Grid container spacing={2} >
                 <Grid item xs={12}>
                     {showJoin && <Button right color="success" size={"sm"}>{t('Conferences.Components.Join')}</Button>}
                     {showWithdraw && <Button right size={"sm"} color="danger" >{t("Conferences.Components.Withdraw")}</Button>}

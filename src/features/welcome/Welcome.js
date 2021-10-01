@@ -39,7 +39,7 @@ function Welcome() {
           <CustomTextField onChange={handleChangeEmail} value={inputValue}
             endAdornment={
               <InputAdornment position="end">
-                <IconButton size="small" color="theme" aria-label="go" onClick={handleButtonClick}>
+                <IconButton size="small" color="primary" aria-label="go" onClick={handleButtonClick}>
                   <KeyboardReturnIcon fontSize="small"></KeyboardReturnIcon>
                 </IconButton>
               </InputAdornment>}

@@ -35,7 +35,7 @@ function ConferenceFilter(props) {
                     <Grid container direction="row"
                         justifyContent="space-between"
                         alignItems="flex-start">
-                        <Grid item xs="5">
+                        <Grid item xs={5}>
                             <DateTime
                                 value={startDate}
                                 onChange={setStartDate}
@@ -43,7 +43,7 @@ function ConferenceFilter(props) {
                                 clearable
                             />
                         </Grid>
-                        <Grid item xs="5" space>
+                        <Grid item xs={5} >
                             <DateTime
                                 value={endDate}
                                 onChange={setEndDate}
@@ -55,10 +55,10 @@ function ConferenceFilter(props) {
                 }
             />
             <Grid container direction="row" justifyContent="flex-end" alignItems="center">
-                <Button size={"sm"} color={"primary"} right={true} onClick={handleResetButton}>
+                <Button size={"small"} color={"primary"} right={"true"} onClick={handleResetButton}>
                     {t("Conferences.Filters.ResetButtons")}
                 </Button>
-                <Button size={"sm"} color={"primary"} right={true} onClick={handleApplyButton}>
+                <Button size={"small"} color={"primary"} right={"true"} onClick={handleApplyButton} onKeyDown={handleKeyPressed}>
                     {t("Conferences.Filters.ApplyFilters")}
                 </Button>
             </Grid>

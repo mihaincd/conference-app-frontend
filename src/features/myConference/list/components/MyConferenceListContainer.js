@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { Grid } from '@material-ui/core'
 import MyConferenceFilter from './MyConferenceFilter';
-import conferences from 'utils/mocks/attendeeList';
 import LoadingFakeText from '@bit/totalsoft_oss.react-mui.fake-text';
 import MyConferenceList from './MyConferenceList';
 import { extractPager, generateDefaultFilters } from 'utils/functions';
@@ -72,7 +71,7 @@ function MyConferenceListContainer() {
             />)
         return () => {
         }
-    }, [])
+    }, [handleAddClick, setHeader, t])
     useEffect(() => {
         setFooter(<Pagination
             totalCount={pager.totalCount}

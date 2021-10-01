@@ -6,8 +6,9 @@ import CustomTextField from '@bit/totalsoft_oss.react-mui.custom-text-field'
 import DeleteButton from '@bit/totalsoft_oss.react-mui.delete-button'
 import { useTranslation } from 'react-i18next'
 import { onCheckBoxChange, onTextBoxChange } from 'utils/propertyChangeAdapters'
+import tableStyles from 'assets/jss/components/tableStyle'
 
-const useStyles = makeStyles()
+const useStyles = makeStyles(tableStyles)
 const MyConferenceSpeakerData = (props) => {
     const { t } = useTranslation()
     const { speaker, dispatch } = props

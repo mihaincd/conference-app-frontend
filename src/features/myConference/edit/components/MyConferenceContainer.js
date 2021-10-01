@@ -4,10 +4,11 @@ import { useHeader } from 'providers/AreasProvider'
 import React, { useEffect, useReducer } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useRouteMatch } from 'react-router'
-import { categories, cities, counties, countries, types } from 'utils/mocks/conferenceDictionaries'
 import { reducer, initialConference } from '../conferenceState'
 import MyConference from './MyConference'
-import {conference as mockConference} from 'utils/mocks/myConference'
+import { useQueryWithErrorHandling } from 'hooks/errorHandling'
+import { CONFERENCE_QUERY } from 'features/myConference/edit/components/queries/ConferenceQuery'
+import LoadingFakeText from '@bit/totalsoft_oss.react-mui.fake-text/dist/LoadingFakeText'
 
 
 
@@ -18,14 +19,19 @@ const MyConferenceContainer = () => {
     const match = useRouteMatch()
 
     const conferenceId = match.params.id
-    const isNew= conferenceId ==='new'
+    const isNew = conferenceId === 'new'
 
-    useEffect(()=>{
-        if(!isNew){
-            dispatch({type:'resetConference', payload:mockConference})
-        }
-   
-    },[] )// eslint-disable-line react-hooks/exhaustive-deps
+    const { data, loading } = useQueryWithErrorHandling(CONFERENCE_QUERY, {
+        variables: {
+            id: conferenceId,
+            isNew
+        },
+        
+        onCompleted: result => result?.conference && dispatch({ type: 'resetConference', payload: result.conference })
+
+    })
+
+
 
     useEffect(() => () => setHeader(null), []) // eslint-disable-line react-hooks/exhaustive-deps
     useEffect(() => {
@@ -33,16 +39,8 @@ const MyConferenceContainer = () => {
             <MyConferencesHeader title={conference.name} actions={<SaveButton title={t("General.Button.Save")} />} />)
     }, [conference.name, setHeader, t])
 
-    const { data, loading } = {
-        loading: false,
-        data: {
-            typeList: types,
-            categoryList: categories,
-            countryList: countries,
-            countyList: counties,
-            cityList: cities
-        }
-    }
+
+    if (loading) return <LoadingFakeText lines={10}></LoadingFakeText>
 
     return <MyConference
         conference={conference}
@@ -52,7 +50,6 @@ const MyConferenceContainer = () => {
         countries={data?.countryList}
         counties={data?.countyList}
         cities={data?.cityList}
-
     />
 }
 

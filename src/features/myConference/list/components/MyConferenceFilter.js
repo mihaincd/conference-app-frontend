@@ -20,7 +20,7 @@ function MyConferenceFilter(props) {
     }, [filters])
     const handleApplyButton = useCallback(() => onApplyFilters({ startDate, endDate }), [onApplyFilters, endDate, startDate])
     const handleResetButton = useCallback(() => onApplyFilters(generateDefaultFilters()), [onApplyFilters])
-    const handleKeyPressed = useCallback(({ keyCode }) => (keyCode === 13 && handleApplyButton()), [handleApplyButton])
+    // const handleKeyPressed = useCallback(({ keyCode }) => (keyCode === 13 && handleApplyButton()), [handleApplyButton])
 
     const { t } = useTranslation()
 
@@ -35,7 +35,7 @@ function MyConferenceFilter(props) {
                     <Grid container direction="row"
                         justifyContent="space-between"
                         alignItems="flex-start">
-                        <Grid item xs="5">
+                        <Grid item xs={5}>
                             <DateTime
                                 value={startDate}
                                 onChange={setStartDate}
@@ -43,7 +43,7 @@ function MyConferenceFilter(props) {
                                 clearable
                             />
                         </Grid>
-                        <Grid item xs="5" space>
+                        <Grid item xs={5} >
                             <DateTime
                                 value={endDate}
                                 onChange={setEndDate}
@@ -55,10 +55,10 @@ function MyConferenceFilter(props) {
                 }
             />
             <Grid container direction="row" justifyContent="flex-end" alignItems="center">
-                <Button size={"sm"} color={"primary"} right={true} >
+                <Button size={"small"} color={"primary"}  onClick={handleResetButton}>
                     {t("Conferences.Filters.ResetButtons")}
                 </Button>
-                <Button size={"sm"} color={"primary"} right={true} onClick={handleApplyButton}>
+                <Button size={"small"} color={"primary"}  onClick={handleApplyButton}>
                     {t("Conferences.Filters.ApplyFilters")}
                 </Button>
             </Grid>
