@@ -35,7 +35,9 @@
       "Attended": "Attended",
       "Join": "Particip",
       "StatusNotSet": "Nu participi"
-    }
+    },
+    "SuccessfullyAttended":"Felicitari! Te-ai inscris cu succes la conferinta! Vei fi notificat cu 5 minute inainte sa inceapa",
+    "QRCodeMessage":"Te-ai inscris cu succes la conferinta! Vei fi notificat cu 5 minute inainte sa inceapa. Foloseste urmatorul cod pentru a accesa conferinta: {{code}}"
   },
   "General": {
     "Button": {
@@ -45,7 +47,8 @@
       "AddSpeaker": "Adauga Orator",
       "Save": "Salveaza",
       "DeleteSpeaker": "Sterge Orator"
-    }
+    },
+    "Congratulations":"Felicitari!"
   },
 
   "Welcome": {

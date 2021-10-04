@@ -9,33 +9,72 @@ import { CONFERENCE_LIST_QUERY } from './gql/queries/ConferenceListQuery';
 import { useEmail } from 'hooks/useEmail';
 import { useFooter } from 'providers/AreasProvider';
 import Pagination from '@bit/totalsoft_oss.react-mui.pagination';
+import { useMutation } from '@apollo/client';
+import ATTEND_CONFERENCE from './gql/mutations/AttendConference';
+import { useError } from 'hooks/errorHandling';
+import DialogDisplay from '@bit/totalsoft_oss.react-mui.dialog-display'
+import ConferenceCodeModal from './ConferenceCodeModal';
+import { useToast } from '@bit/totalsoft_oss.react-mui.kit.core';
+import { useTranslation } from 'react-i18next';
+import { emptyString } from 'utils/constants';
+
 
 
 function ConferenceListContainer() {
     const [filters, setFilters] = useState(generateDefaultFilters)
-    const [pager, setPager] = useState({ totalCount: 25, page: 0, pageSize: 3 })
+    const [pager, setPager] = useState({ totalCount: 0, page: 0, pageSize: 3 })
+    const { t } = useTranslation()
+
+    const showError = useError()
+    const [code, setCode] = useState()
+    const [open, setOpen] = useState(false)
+
+    const addToast = useToast()
+
 
     const [email] = useEmail()
     const [, setFooter] = useFooter()
     useEffect(() => () => setFooter(null), [])    // eslint-disable-line react-hooks/exhaustive-deps
-    
+
+    const [attend] = useMutation(ATTEND_CONFERENCE, {
+        onError: showError,
+        onCompleted: result => {
+            debugger
+            if (result?.attend) {
+                setCode(result?.attend)
+                setOpen(true)
+                addToast()
+            }
+        }
+    })
+
+    const handleAttend = useCallback(conferenceId => () => {
+        attend({
+            variables: {
+                input: {
+                    conferenceId,
+                    attendeeEmail: email
+                }
+            }
+        })
+    }, [attend, email])
+
     const handleRowsPerPageChange = useCallback((pageSize) => {
         setPager((state) => ({ ...state, pageSize: parseInt(pageSize) }))
     }, [])
-
     const handlePageChange = useCallback((page) => {
         setPager((state) => ({ ...state, page }))
     }, [])
 
-
     const { data, loading, refetch } = useQueryWithErrorHandling(CONFERENCE_LIST_QUERY, {
-        variables: { 
+        variables: {
             pager: extractPager(pager),
-             filters, 
-             email }, 
-        onCompleted:(result)=>{
+            filters,
+            email
+        },
+        onCompleted: (result) => {
             const totalCount = result?.conferenceList?.pagination?.totalCount
-            setPager(state=>({...state, totalCount}))
+            setPager(state => ({ ...state, totalCount }))
         }
     })
 
@@ -56,6 +95,12 @@ function ConferenceListContainer() {
         setFilters(value)
     }, [])
 
+    const handleClose = useCallback(() => {
+        setOpen(false)
+        setCode(emptyString)
+        refetch()
+    }, [refetch])
+
     if (loading || !data) return <LoadingFakeText lines={10} />
 
     return (<>
@@ -64,8 +109,16 @@ function ConferenceListContainer() {
                 <ConferenceFilter filters={filters} onApplyFilters={handleApplyFilters}></ConferenceFilter>
             </Grid>
             <Grid>
-                <ConferenceList conferences={data?.conferenceList?.values}>
-                </ConferenceList>
+                <ConferenceList conferences={data?.conferenceList?.values} onAttend={handleAttend} />
+                <DialogDisplay id='showQRCode' content={
+                    <ConferenceCodeModal
+                        code={code}
+                    />}
+                    open={open}
+                    onClose={handleClose}
+
+                    addToast={t("SuccessfullyAttended"), 'success'}
+                />
             </Grid>
         </Grid>
     </>

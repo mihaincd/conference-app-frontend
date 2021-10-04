@@ -27,7 +27,8 @@
       "AddSpeaker": "AddSpeaker",
       "Save": "Save",
       "DeleteSpeaker":"Delete Speaker"
-    }
+    },
+    "Congratulations":"Congratulations!"
   },
   "Location":{
     "Name":"Name",
@@ -61,7 +62,11 @@
       "DateStart": "Start Date",
       "DateEnd": "End Date",
       "ResetButtons": "Reset Filters",
-      "ApplyFilters": "Apply Filters"
+      "ApplyFilters": "Apply Filters",
+      "StatusNotSet": "Not attending",
+      "SuccessfullyAttended":"Congratulations! You successfully attended to the conference! You will be notified to join 5 minutes before it starts.",
+      "QRCodeMessage":"You successfully attended to the conference! You will be notified to join 5 minutes before it starts. Use the following code to access the conference: {{code}}"
+    
     },
     "Speaker": "Speaker: ",
     "Components": {
