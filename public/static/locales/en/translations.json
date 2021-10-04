@@ -26,30 +26,29 @@
       "AddConference": "Add Conference",
       "AddSpeaker": "AddSpeaker",
       "Save": "Save",
-      "DeleteSpeaker":"Delete Speaker"
+      "DeleteSpeaker": "Delete Speaker"
     },
-    "Congratulations":"Congratulations!"
+    "Congratulations": "Congratulations!",
+    "SuggestedConferences": "Suggested Conferences"
   },
-  "Location":{
-    "Name":"Name",
-    "Country":"Country",
-    "City":"City",
-    "County":"County",
-    "Address":"Address",
-    "Longitude":"Longitude",
-    "Latitude":"Latitude"
-
-  }
-  ,
+  "Location": {
+    "Name": "Name",
+    "Country": "Country",
+    "City": "City",
+    "County": "County",
+    "Address": "Address",
+    "Longitude": "Longitude",
+    "Latitude": "Latitude"
+  },
   "Conference": {
     "Info": "Info",
     "Location": "Location",
     "Speakers": "Speakers",
-    "Name":"Name",
-    "StartDate":"Start Date",
-    "EndDate":"End Date",
-    "Type":"Type",
-    "Category":"Category"
+    "Name": "Name",
+    "StartDate": "Start Date",
+    "EndDate": "End Date",
+    "Type": "Type",
+    "Category": "Category"
   },
   "Speaker": {
     "Name": "Name",
@@ -63,11 +62,11 @@
       "DateEnd": "End Date",
       "ResetButtons": "Reset Filters",
       "ApplyFilters": "Apply Filters",
-      "StatusNotSet": "Not attending",
-      "SuccessfullyAttended":"Congratulations! You successfully attended to the conference! You will be notified to join 5 minutes before it starts.",
-      "QRCodeMessage":"You successfully attended to the conference! You will be notified to join 5 minutes before it starts. Use the following code to access the conference: {{code}}"
-    
+      "StatusNotSet": "Not attending"
     },
+    "SuccessfullyAttended": "Congratulations! You successfully attended to the conference! You will be notified to join 5 minutes before it starts.",
+    "QRCodeMessage": "You successfully attended to the conference! You will be notified to join 5 minutes before it starts. Use the following code to access the conference: {{code}}",
+
     "Speaker": "Speaker: ",
     "Components": {
       "Withdraw": "Withdraw",
