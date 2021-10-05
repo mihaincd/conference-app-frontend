@@ -5,4 +5,5 @@ export const emptyString = ''
 export const emptyFunction = () => {}
 
 export const validEmailRegEx = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
+export const validRatingRegEx = /\d+/g
 

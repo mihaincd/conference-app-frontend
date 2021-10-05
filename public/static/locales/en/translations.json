@@ -76,6 +76,9 @@
       "StatusNotSet": "Not attending"
     }
   },
+  "MyConferences":{
+    "SavingSucceeded":"Saving Succeeded"
+  },
 
   "Welcome": {
     "Title": "Welcome !",

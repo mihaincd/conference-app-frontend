@@ -4,9 +4,12 @@ import PropTypes from 'prop-types'
 import { Table, Tbody, Th, Thead, Tr } from 'react-super-responsive-table'
 import { useTranslation } from 'react-i18next'
 import MyConferenceSpeakerData from './MyConferenceSpeakerData'
+import tableStyles from 'assets/jss/components/tableStyle'
 
+
+const useStyles = makeStyles(tableStyles)
 const MyConferenceSpeakers = (props) => {
-    const useStyles = makeStyles()
+    
     const { t } = useTranslation()
     const { speakers, dispatch } = props
     const classes = useStyles()

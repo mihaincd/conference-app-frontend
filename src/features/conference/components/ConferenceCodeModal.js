@@ -15,7 +15,7 @@ const ConferenceCodeModal = ({ code, suggestedConferences, onAttend }) => {
         <>
             <Grid container>
                 <Grid item lg={12}>
-                    <img src={qr} alt="QR" style={{ maxWidth: '20' }} />
+                    <img src={qr} alt="QR" style={{ maxWidth: '50px' }} />
                 </Grid>
                 <Grid item lg={12}>
                     <Typography variant='subtitle1'>{t("Conferences.QRCodeMessage", { code })}</Typography>

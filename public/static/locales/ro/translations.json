@@ -12,6 +12,10 @@
     "Conferences": "Conferinte",
     "MyConferences": "Conferintele mele"
   },
+  "MyConferences":{
+    "SavingSucceeded":"Salvare realizata cu succes"
+  },
+
   "Conference": {
     "Info": "Informatii",
     "Location": "locatie",

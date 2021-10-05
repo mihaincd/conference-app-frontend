@@ -29,7 +29,10 @@ const MyConferenceSpeakerData = (props) => {
                 <CustomTextField fullWidth isNumeric value={rating} onChange={handleGeneralDispatch('rating', 'rating')} />
             </Td>
             <Td className={classes.tableContent}>
-                <Checkbox color='secondary' checked={isMainSpeaker} onChange={onCheckBoxChange(handleGeneralDispatch('isMainSpeaker', 'isMainSpeaker'))} />
+                <Checkbox 
+                color='secondary' 
+                checked={!!isMainSpeaker} 
+                onChange={onCheckBoxChange(handleGeneralDispatch('isMainSpeaker', 'isMainSpeaker'))} />
             </Td>
             <Td className={classes.tableContent}>
                 <DeleteButton title={t('General.Buttons.DeleteSpeaker')} size='small' onClick={handleDelete} />
