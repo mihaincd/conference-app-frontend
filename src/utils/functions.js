@@ -1,8 +1,9 @@
 import moment from 'moment'
 import { curry, without, intersection, isEmpty, not } from 'ramda'
-import {validEmailRegEx } from './constants'
+import {validEmailRegEx, validRatingRegEx } from './constants'
 
 export const validateEmail = email => validEmailRegEx .test(email)
+export const validateRating = rating => validRatingRegEx .test(rating)
 
 export const generateDefaultFilters = () =>{
   const today = moment()
