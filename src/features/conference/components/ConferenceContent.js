@@ -7,12 +7,12 @@ import attendeeStatus from 'constants/attendeeStatus'
 
 
 const ConferenceContent = props => {
-    const { conference, onAttend } = props
+    const { conference, onAttend, onWithdrawn } = props
     const { status, startDate, endDate, type, category } = conference
 
     const { t } = useTranslation();
 
-    const noStatusSet = t('Conferences.Filters.StatusNotSet')
+    const noStatusSet = t('Conferences.Filters.Stat usNotSet')
 
     const showJoin = status?.id === attendeeStatus.Attended
     const showWithdraw = status?.id === attendeeStatus.Attended || status?.id === attendeeStatus.Joined
@@ -36,7 +36,7 @@ const ConferenceContent = props => {
             <Grid container spacing={2} >
                 <Grid item xs={12}>
                     {showJoin && <Button right color="success" size={"sm"}>{t('Conferences.Components.Join')}</Button>}
-                    {showWithdraw && <Button right size={"sm"} color="danger" >{t("Conferences.Components.Withdraw")}</Button>}
+                    {showWithdraw && <Button right size={"sm"} color="danger" onClick={onWithdrawn(conference?.id)}>{t("Conferences.Components.Withdraw")}</Button>}
                     {showAttend && <Button right size='sm' color="info" onClick={onAttend(conference?.id)}>{t("Conferences.Components.Attended")}</Button>}
                 </Grid>
             </Grid>
@@ -46,7 +46,8 @@ const ConferenceContent = props => {
 
 ConferenceContent.propTypes = {
     conference: PropTypes.object.isRequired,
-    onAttend: PropTypes.func.isRequired
+    onAttend: PropTypes.func.isRequired,
+    onWithdrawn: PropTypes.func.isRequired
 }
 
 export default ConferenceContent;

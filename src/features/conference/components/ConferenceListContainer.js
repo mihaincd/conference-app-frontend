@@ -57,6 +57,7 @@ function ConferenceListContainer() {
         onCompleted: result => {
             if (result?.withdraw) {
                 addToast(t("Conferences.SuccessfullyWithdraw"), 'success')
+                refetch()
             }
         }
     })
@@ -74,16 +75,16 @@ function ConferenceListContainer() {
 
     //TODO
 
-    // const handleWithdraw = useCallback(conferenceId => () => {
-    //     withdraw({
-    //         variables: {
-    //             input: {
-    //                 conferenceId,
-    //                 attendeeEmail: email
-    //             }
-    //         }
-    //     })
-    // }, [withdraw, email])
+    const handleWithdrawn = useCallback(conferenceId => () => {
+        withdraw({
+            variables: {
+                input: {
+                    conferenceId,
+                    attendeeEmail: email
+                }
+            }
+        })
+    }, [withdraw, email])
 
     const handleRowsPerPageChange = useCallback((pageSize) => {
         setPager((state) => ({ ...state, pageSize: parseInt(pageSize) }))
@@ -135,7 +136,7 @@ function ConferenceListContainer() {
                 <ConferenceFilter filters={filters} onApplyFilters={handleApplyFilters}></ConferenceFilter>
             </Grid>
             <Grid>
-                <ConferenceList conferences={data?.conferenceList?.values} onAttend={handleAttend} />
+                <ConferenceList conferences={data?.conferenceList?.values} onWithdrawn={handleWithdrawn} onAttend={handleAttend} />
                 <DialogDisplay id='showQRCode'
                     open={open}
                     onClose={handleClose}
@@ -144,6 +145,7 @@ function ConferenceListContainer() {
                             code={code}
                             suggestedConferences={suggestedConferences}
                             onAttend={handleAttend}
+                            onWithdrawn={handleWithdrawn}
                         />}
                 />
             </Grid>

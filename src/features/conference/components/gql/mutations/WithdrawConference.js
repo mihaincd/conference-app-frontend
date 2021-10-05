@@ -3,9 +3,7 @@ import { gql } from '@apollo/client'
 
 const WITHDRAW_CONFERENCE = gql`
     mutation withdraw($input: Attendee!) {
-        withdraw(input: $input) {
-        id
-    }
+        withdraw(input: $input) 
 }
 `
 
