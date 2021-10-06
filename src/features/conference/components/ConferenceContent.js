@@ -6,13 +6,16 @@ import { useTranslation } from 'react-i18next'
 import attendeeStatus from 'constants/attendeeStatus'
 
 
+
 const ConferenceContent = props => {
-    const { conference, onAttend, onWithdrawn } = props
+    const { conference, onAttend, onWithdrawn, onJoined } = props
     const { status, startDate, endDate, type, category } = conference
 
     const { t } = useTranslation();
+    
 
-    const noStatusSet = t('Conferences.Filters.Stat usNotSet')
+
+    const noStatusSet = t('Conferences.Filters.StatusNotSet')
 
     const showJoin = status?.id === attendeeStatus.Attended
     const showWithdraw = status?.id === attendeeStatus.Attended || status?.id === attendeeStatus.Joined
@@ -20,6 +23,8 @@ const ConferenceContent = props => {
 
     const startDateFormatted = t('DATE_FORMAT', { date: { value: startDate, format: 'DD-MMM-YYYY HH:mm' } })
     const endDateFormatted = t('DATE_FORMAT', { date: { value: endDate, format: 'DD-MMM-YYYY HH:mm' } })
+
+    
     return (
         <Grid container >
             <Grid item xs={12}>
@@ -35,7 +40,7 @@ const ConferenceContent = props => {
 
             <Grid container spacing={2} >
                 <Grid item xs={12}>
-                    {showJoin && <Button right color="success" size={"sm"}>{t('Conferences.Components.Join')}</Button>}
+                    {showJoin && <Button right color="success" size={"sm"} onClick={onJoined(conference?.id)} >{t('Conferences.Components.Join')}</Button>}
                     {showWithdraw && <Button right size={"sm"} color="danger" onClick={onWithdrawn(conference?.id)}>{t("Conferences.Components.Withdraw")}</Button>}
                     {showAttend && <Button right size='sm' color="info" onClick={onAttend(conference?.id)}>{t("Conferences.Components.Attended")}</Button>}
                 </Grid>
@@ -47,7 +52,10 @@ const ConferenceContent = props => {
 ConferenceContent.propTypes = {
     conference: PropTypes.object.isRequired,
     onAttend: PropTypes.func.isRequired,
-    onWithdrawn: PropTypes.func.isRequired
+    onWithdrawn: PropTypes.func.isRequired,
+    onJoined: PropTypes.func.isRequired
+
+    
 }
 
 export default ConferenceContent;

@@ -12,6 +12,7 @@ import { useEmail } from 'hooks/useEmail'
 import ConferenceListContainer from 'features/conference/components/ConferenceListContainer'
 import MyConferenceListContainer from 'features/myConference/list/components/MyConferenceListContainer'
 import MyConferenceContainer from 'features/myConference/edit/components/MyConferenceContainer'
+import ConferenceJoined from 'features/conference/components/ConferenceJoined'
 
 export default function AppRoutes() {
   const [email] = useEmail()
@@ -34,6 +35,7 @@ export default function AppRoutes() {
       <CustomRoute isPrivate={false} exact path='/myConferences' component={MyConferenceListContainer}/>
       <CustomRoute isPrivate={false} exact path='/myConferences/:id(new)' component={MyConferenceContainer} />
       <CustomRoute isPrivate={false} exact path='/myConferences/:id(\d+)' component={MyConferenceContainer} />
+      <CustomRoute isPrivate={false} exact path='/joinedConferences/:id(\d+)' component={ConferenceJoined} />
       <Redirect exact from='/' to='/welcome' />
 
       <CustomRoute isPrivate={false} exact path='/forbidden' component={Forbidden} />

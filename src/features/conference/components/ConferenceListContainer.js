@@ -18,6 +18,9 @@ import ConferenceCodeModal from './ConferenceCodeModal';
 import { useToast } from '@bit/totalsoft_oss.react-mui.kit.core';
 import { useTranslation } from 'react-i18next';
 import { emptyArray, emptyString } from 'utils/constants';
+import JOIN_CONFERENCE from './gql/mutations/JoinConference';
+import { useHistory } from 'react-router';
+
 
 
 
@@ -25,6 +28,7 @@ function ConferenceListContainer() {
     const [filters, setFilters] = useState(generateDefaultFilters)
     const [pager, setPager] = useState({ totalCount: 0, page: 0, pageSize: 3 })
     const { t } = useTranslation()
+    const history = useHistory()
 
     const showError = useError()
     const [code, setCode] = useState()
@@ -34,9 +38,23 @@ function ConferenceListContainer() {
     const addToast = useToast()
 
 
+
+
     const [email] = useEmail()
     const [, setFooter] = useFooter()
     useEffect(() => () => setFooter(null), [])    // eslint-disable-line react-hooks/exhaustive-deps
+
+    const { data, loading, refetch } = useQueryWithErrorHandling(CONFERENCE_LIST_QUERY, {
+        variables: {
+            pager: extractPager(pager),
+            filters,
+            email
+        },
+        onCompleted: (result) => {
+            const totalCount = result?.conferenceList?.pagination?.totalCount
+            setPager(state => ({ ...state, totalCount }))
+        }
+    })
 
     const [attend] = useMutation(ATTEND_CONFERENCE, {
         onError: showError,
@@ -51,12 +69,21 @@ function ConferenceListContainer() {
             }
         }
     })
-    
+
     const [withdraw] = useMutation(WITHDRAW_CONFERENCE, {
         onError: showError,
         onCompleted: result => {
             if (result?.withdraw) {
                 addToast(t("Conferences.SuccessfullyWithdraw"), 'success')
+                refetch()
+            }
+        }
+    })
+    const [join] = useMutation(JOIN_CONFERENCE, {
+        onError: showError,
+        onCompleted: result => {
+            if (result?.join) {
+                addToast(t("Conferences.SuccessfullyJoined"), 'success')
                 refetch()
             }
         }
@@ -86,6 +113,21 @@ function ConferenceListContainer() {
         })
     }, [withdraw, email])
 
+    const handleJoined = useCallback(conferenceId => () => {
+        join({
+            variables: {
+                input: {
+                    conferenceId,
+                    attendeeEmail: email
+                }
+            }
+        }) 
+        history.push(`joinedConferences/${conferenceId}`)
+        refetch()
+    }, [join, email, refetch, history])
+
+
+
     const handleRowsPerPageChange = useCallback((pageSize) => {
         setPager((state) => ({ ...state, pageSize: parseInt(pageSize) }))
     }, [])
@@ -93,17 +135,7 @@ function ConferenceListContainer() {
         setPager((state) => ({ ...state, page }))
     }, [])
 
-    const { data, loading, refetch } = useQueryWithErrorHandling(CONFERENCE_LIST_QUERY, {
-        variables: {
-            pager: extractPager(pager),
-            filters,
-            email
-        },
-        onCompleted: (result) => {
-            const totalCount = result?.conferenceList?.pagination?.totalCount
-            setPager(state => ({ ...state, totalCount }))
-        }
-    })
+   
 
     useEffect(() => {
         setFooter(<Pagination
@@ -136,7 +168,7 @@ function ConferenceListContainer() {
                 <ConferenceFilter filters={filters} onApplyFilters={handleApplyFilters}></ConferenceFilter>
             </Grid>
             <Grid>
-                <ConferenceList conferences={data?.conferenceList?.values} onWithdrawn={handleWithdrawn} onAttend={handleAttend} />
+                <ConferenceList conferences={data?.conferenceList?.values} onWithdrawn={handleWithdrawn} onAttend={handleAttend} onJoined={handleJoined} />
                 <DialogDisplay id='showQRCode'
                     open={open}
                     onClose={handleClose}

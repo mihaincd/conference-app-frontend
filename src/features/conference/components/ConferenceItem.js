@@ -5,7 +5,7 @@ import ConferenceContent from './ConferenceContent'
 import ConferenceSubtitle from './ConferenceSubtitle'
 
 const ConferenceItem = (props) => {
-    const { conference, onAttend, onWithdrawn } = props
+    const { conference, onAttend, onWithdrawn, onJoined } = props
     const { name, location, speakers } = conference
     const speaker = speakers.find(item => item.isMainSpeaker)
 
@@ -24,6 +24,7 @@ const ConferenceItem = (props) => {
                     conference={conference}
                     onAttend={onAttend}
                     onWithdrawn={onWithdrawn}
+                    onJoined={onJoined}
                 />
             }
         />
@@ -33,7 +34,10 @@ const ConferenceItem = (props) => {
 ConferenceItem.propTypes = {
     conference: PropTypes.object.isRequired,
     onAttend: PropTypes.func.isRequired,
-    onWithdrawn: PropTypes.func.isRequired
+    onWithdrawn: PropTypes.func.isRequired,
+    onJoined: PropTypes.func.isRequired
+
+    
 }
 
 export default ConferenceItem
